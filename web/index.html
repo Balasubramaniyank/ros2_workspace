@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Control Panel - Gaming Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">🤖 ROBOT COMMAND CENTER</h1>
+            <div class="status-panel">
+                <div class="status-indicator connected">
+                    <span class="status-dot"></span>
+                    CONNECTED
+                </div>
+                <div class="battery">🔋 100%</div>
+            </div>
+        </div>
+
+        <!-- Main Control Panel -->
+        <div class="control-panel">
+            <!-- Movement Controls -->
+            <div class="movement-section">
+                <h2 class="section-title">MOVEMENT CONTROL</h2>
+                
+                <!-- Directional Pad -->
+                <div class="d-pad">
+                    <button class="control-btn btn-forward" id="forward">
+                        ↑<span>FORWARD</span>
+                    </button>
+                    <button class="control-btn btn-left" id="left">
+                        ←<span>LEFT</span>
+                    </button>
+                    <button class="control-btn btn-center" id="stop">
+                        ●<span>STOP</span>
+                    </button>
+                    <button class="control-btn btn-right" id="right">
+                        →<span>RIGHT</span>
+                    </button>
+                    <button class="control-btn btn-backward" id="backward">
+                        ↓<span>BACKWARD</span>
+                    </button>
+                </div>
+
+                <!-- Speed Control -->
+                <div class="speed-control">
+                    <h3>SPEED LEVEL</h3>
+                    <div class="speed-slider">
+                        <input type="range" id="speed" min="1" max="10" value="5" class="slider">
+                        <div class="speed-labels">
+                            <span>SLOW</span>
+                            <span>MEDIUM</span>
+                            <span>FAST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-section">
+                <h2 class="section-title">QUICK ACTIONS</h2>
+                <div class="action-buttons">
+                    <button class="action-btn btn-rotate-left" id="rotateLeft">
+                        ↺ ROTATE LEFT
+                    </button>
+                    <button class="action-btn btn-rotate-right" id="rotateRight">
+                        ↻ ROTATE RIGHT
+                    </button>
+                    <button class="action-btn btn-emergency" id="emergencyStop">
+                        🚨 EMERGENCY STOP
+                    </button>
+                </div>
+
+                <!-- Command Log -->
+                <div class="command-log">
+                    <h3>COMMAND LOG</h3>
+                    <div class="log-container" id="logContainer">
+                        <div class="log-entry">System: Ready for commands</div>
+                        <div class="log-entry">Status: Connected to robot</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Stats -->
+        <div class="footer-stats">
+            <div class="stat-item">
+                <span class="stat-label">UPTIME</span>
+                <span class="stat-value" id="uptime">00:15:32</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">COMMANDS SENT</span>
+                <span class="stat-value" id="commandCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">LATENCY</span>
+                <span class="stat-value" id="latency">12ms</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

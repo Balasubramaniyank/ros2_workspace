@@ -1,0 +1,799 @@
+<sdf version='1.10'>
+  <world name='default'>
+    <physics name='default_physics' default='false' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>1 1 1 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>148 275000000</sim_time>
+      <real_time>112 972838394</real_time>
+      <wall_time>1596491998 406785975</wall_time>
+      <iterations>112760</iterations>
+      <model name='inspection_geom'>
+        <pose>0 0 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='inspection_world_link'>
+          <pose>0 0 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <model name='inspection_water_geom'>
+        <pose>0 0 0 0 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='inspection_water_link'>
+          <pose>0 0 0 0 0 0</pose>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='false'>
+      <camera name='user_camera'>
+        <pose>87.282499999999999 25.0441 36.230600000000003 3.7121976491866171e-18 0.36364300000000011 -3.0663900000000002</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>6.0000000000000002e-06 2.3e-05 -4.1999999999999998e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <model name='inspection_geom'>
+      <link name='inspection_world_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <collision name='inspection_world_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/install/simulation_world/share/simulation_world/models/cpr_inspection/meshes/inspection_world.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='inspection_world_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/install/simulation_world/share/simulation_world/models/cpr_inspection/meshes/inspection_world.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>false</self_collide>
+        <enable_wind>false</enable_wind>
+        <kinematic>false</kinematic>
+      </link>
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='husky'>
+      <link name='base_footprint'>
+        <inertial>
+          <pose>-0.00064823977989124544 -0.084769817370393644 -0.068985561212331306 0 0 0</pose>
+          <mass>46.158999999999999</mass>
+          <inertia>
+            <ixx>0.63258383659199735</ixx>
+            <ixy>-0.023646887547661349</ixy>
+            <ixz>-0.11973873232684849</ixz>
+            <iyy>1.768083209951919</iyy>
+            <iyz>-0.0066089965878809442</iyz>
+            <izz>2.0315007319790421</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+          <pose>0 0 -0.070405000000000009 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98740000000000006 0.57089999999999996 0.12375</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__base_link_collision_1'>
+          <pose>0 0 0.043344999999999967 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.78992000000000007 0.57089999999999996 0.10375</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__lidar_link_collision_2'>
+          <pose>0 0 0.40772000000000003 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.10000000000000001</length>
+              <radius>0.10000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__top_plate_link_collision_3'>
+          <pose>0.081199999999999994 0 0.11272 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/top_plate.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+          <pose>0 0 -0.13228000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/base_link.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__front_bumper_link_visual_1'>
+          <pose>0.47999999999999998 0 -0.041280000000000011 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/bumper.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__lidar_link_visual_2'>
+          <pose>0 0 0.40772000000000003 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.10000000000000001</length>
+              <radius>0.10000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.187500015 0.187500015 0.187500015 1</diffuse>
+            <ambient>0.187500015 0.187500015 0.187500015 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__rear_bumper_link_visual_3'>
+          <pose>-0.47999999999999998 0 -0.041280000000000011 0 0 3.1415899999999999</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/bumper.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__top_chassis_link_visual_4'>
+          <pose>0 0 -0.13228000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/top_chassis.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__top_plate_link_visual_5'>
+          <pose>0.081199999999999994 0 0.11272 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/top_plate.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__user_rail_link_visual_6'>
+          <pose>0.27200000000000002 0 0.11272 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/user_rail.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <sensor name='lidar_scan' type='gpu_lidar'>
+          <pose>0 0 0.40772000000000003 0 0 0</pose>
+          <topic>scan</topic>
+          <update_rate>10</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>360</samples>
+                <resolution>1</resolution>
+                <min_angle>-3.1415899999999999</min_angle>
+                <max_angle>3.1415899999999999</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>64</samples>
+                <min_angle>-0.39269900000000002</min_angle>
+                <max_angle>0.39269900000000002</max_angle>
+                <resolution>1</resolution>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.080000000000000002</min>
+              <max>10</max>
+              <resolution>0.01</resolution>
+            </range>
+            <noise>
+              <type>none</type>
+              <mean>0</mean>
+              <stddev>0</stddev>
+            </noise>
+            <visibility_mask>4294967295</visibility_mask>
+          </lidar>
+          <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+            <render_engine>ogre2</render_engine>
+          </plugin>
+        </sensor>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='front_left_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>front_left_wheel</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='front_left_wheel'>
+        <pose>0.25599999999999995 0.28540000000000099 -0.099459999999999937 2.7105054312137616e-19 1.2197638982707059e-09 1.6530883355306093e-28</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.024670000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.044110000000000003</iyy>
+            <iyz>0</iyz>
+            <izz>0.024670000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='front_left_wheel_collision'>
+          <pose>0 0 0 1.5707949999999999 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>0.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='front_left_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='front_right_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>front_right_wheel</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='front_right_wheel'>
+        <pose>0.25600007544361419 -0.28539999578281261 -0.099459999863307752 1.5813944774850964e-11 5.9554249048644529e-10 -8.7280782592619295e-09</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.024670000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.044110000000000003</iyy>
+            <iyz>0</iyz>
+            <izz>0.024670000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='front_right_wheel_collision'>
+          <pose>0 0 0 1.5707949999999999 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>0.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='front_right_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rear_left_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>rear_left_wheel</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rear_left_wheel'>
+        <pose>-0.25600000000000001 0.28540000000000187 -0.099460000000000048 6.8575787409708163e-18 -4.2519664980762712e-11 -1.4579097532263984e-28</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.024670000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.044110000000000003</iyy>
+            <iyz>0</iyz>
+            <izz>0.024670000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='rear_left_wheel_collision'>
+          <pose>0 0 0 1.5707949999999999 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>0.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rear_left_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rear_right_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>rear_right_wheel</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rear_right_wheel'>
+        <pose>-0.25599992683318623 -0.28539999157617224 -0.099460000215740085 1.5336729749876007e-11 1.1736012425657212e-09 -8.4646749939125618e-09</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.024670000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.044110000000000003</iyy>
+            <iyz>0</iyz>
+            <izz>0.024670000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='rear_right_wheel_collision'>
+          <pose>0 0 0 1.5707949999999999 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>0.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rear_right_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/arz-1028/lidar_nav_ws/src/husky_description/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <plugin name='gz::sim::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'>
+        <topic>joint_states</topic>
+        <joint_name>front_left_wheel_joint</joint_name>
+        <joint_name>front_right_wheel_joint</joint_name>
+        <joint_name>rear_left_wheel_joint</joint_name>
+        <joint_name>rear_right_wheel_joint</joint_name>
+      </plugin>
+      <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
+        <left_joint>front_left_wheel_joint</left_joint>
+        <left_joint>rear_left_wheel_joint</left_joint>
+        <right_joint>front_right_wheel_joint</right_joint>
+        <right_joint>rear_right_wheel_joint</right_joint>
+        <wheel_separation>0.57</wheel_separation>
+        <wheel_radius>0.1</wheel_radius>
+        <topic>cmd_vel</topic>
+        <odom_topic>odom</odom_topic>
+        <tf_topic>/tf</tf_topic>
+        <frame_id>odom</frame_id>
+        <child_frame_id>base_footprint</child_frame_id>
+        <publish_odom>true</publish_odom>
+        <publish_wheel_tf>true</publish_wheel_tf>
+        <publish_odom_tf>true</publish_odom_tf>
+      </plugin>
+      <frame name='front_bumper' attached_to='base_link'>
+        <pose>0.47999999999999998 0 0.090999999999999998 0 0 0</pose>
+      </frame>
+      <frame name='front_bumper_link' attached_to='front_bumper'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='gps_joint' attached_to='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='gps_link' attached_to='gps_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='imu_joint' attached_to='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='imu_link' attached_to='imu_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='inertial_joint' attached_to='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='inertial_link' attached_to='inertial_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='lidar_joint' attached_to='base_link'>
+        <pose>0 0 0.54000000000000004 0 0 0</pose>
+      </frame>
+      <frame name='lidar_link' attached_to='lidar_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='rear_bumper' attached_to='base_link'>
+        <pose>-0.47999999999999998 0 0.090999999999999998 0 0 3.1415899999999999</pose>
+      </frame>
+      <frame name='rear_bumper_link' attached_to='rear_bumper'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='top_chassis_joint' attached_to='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='top_chassis_link' attached_to='top_chassis_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='top_plate_front_joint' attached_to='top_plate_link'>
+        <pose>0.36366999999999999 0 0.0063899999999999998 0 0 0</pose>
+      </frame>
+      <frame name='top_plate_front_link' attached_to='top_plate_front_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='top_plate_rear_joint' attached_to='top_plate_link'>
+        <pose>-0.36632999999999999 0 0.0063899999999999998 0 0 0</pose>
+      </frame>
+      <frame name='top_plate_rear_link' attached_to='top_plate_rear_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='top_plate_joint' attached_to='base_link'>
+        <pose>0.081199999999999994 0 0.245 0 0 0</pose>
+      </frame>
+      <frame name='top_plate_link' attached_to='top_plate_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='user_rail' attached_to='base_link'>
+        <pose>0.27200000000000002 0 0.245 0 0 0</pose>
+      </frame>
+      <frame name='user_rail_link' attached_to='user_rail'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='base_footprint_joint' attached_to='base_footprint'>
+        <pose>0 0 -0.13228000000000001 0 0 0</pose>
+      </frame>
+      <frame name='base_link' attached_to='base_footprint_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <pose>0.0096347079434933574 -7.9935273479083486 0.48752875001577295 -0.022865355968334954 0.0285415836218369 -0.0070921454212366534</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cylinder'>
+      <pose>2.8738462036668402 -8.694751943534019 0.57653212669022957 -0.00086395436428571737 -0.006308859103346629 -0.027588760438536114</pose>
+      <link name='cylinder_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.14580000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.14580000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cylinder_collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cylinder_visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cylinder_0'>
+      <pose>2.7775657816126946 -9.6118511607342416 0.56885489928435795 -0.00068738648963567988 -0.0046348800351312626 -0.037240019744775275</pose>
+      <link name='cylinder_link'>
+        <inertial>
+          <inertia>
+            <ixx>0.14580000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.14580000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <mass>1</mass>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <collision name='cylinder_collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='cylinder_visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.300000012 0.300000012 0.300000012 1</ambient>
+            <diffuse>0.699999988 0.699999988 0.699999988 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 -0.5 -1</direction>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

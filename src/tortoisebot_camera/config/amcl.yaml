@@ -1,0 +1,41 @@
+amcl:
+  ros__parameters:
+
+    use_sim_time: true
+
+    # Frames
+    base_frame_id: "base_footprint"
+    odom_frame_id: "odom"
+    global_frame_id: "map"
+
+    # Laser
+    scan_topic: "scan"
+    laser_model_type: "likelihood_field"
+    max_beams: 60
+    laser_min_range: 0.08
+    laser_max_range: 10.0
+
+    # Particle filter
+    min_particles: 500
+    max_particles: 2000
+    resample_interval: 2
+    pf_err: 0.05
+    pf_z: 0.99
+
+    # Motion model
+    odom_model_type: "diff"
+
+    # Update thresholds
+    update_min_d: 0.25
+    update_min_a: 0.2
+
+    # TF tolerance (CRITICAL)
+    transform_tolerance: 1.5
+
+    # Initial pose
+    set_initial_pose: true
+    initial_pose_x: 0.0
+    initial_pose_y: 0.0
+    initial_pose_a: 0.0
+
+

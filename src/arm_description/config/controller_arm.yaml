@@ -1,0 +1,49 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gripper_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+      - j6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    gains:
+      j1: {p: 100.0, i: 0.0, d: 1.0}
+      j2: {p: 500.0, i: 0.0, d: 5.0} 
+      j3: {p: 300.0, i: 0.0, d: 3.0}
+      j4: {p: 100.0, i: 0.0, d: 1.0}
+      j5: {p: 50.0, i: 0.0, d: 0.5}
+      j6: {p: 20.0, i: 0.0, d: 0.1}
+      
+gripper_effort_controller:
+  ros__parameters:
+    joints:
+      - j_finger_left
+      - j_finger_right
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    gains:
+      j_finger_left: {p: 100.0, i: 0.1, d: 1.0}
+      j_finger_right: {p: 100.0, i: 0.1, d: 1.0}

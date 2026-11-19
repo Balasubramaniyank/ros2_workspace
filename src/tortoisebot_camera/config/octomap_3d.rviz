@@ -1,0 +1,69 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Displays:
+    # 1. OctoMap 3D Visualization
+    - Class: rviz_default_plugins/MarkerArray
+      Name: "3D OctoMap Occupied"
+      Topic: /occupied_cells_vis_array
+      Queue Size: 10
+      Namespace: octomap_occupied
+      
+    - Class: rviz_default_plugins/MarkerArray
+      Name: "3D OctoMap Free"
+      Topic: /free_cells_vis_array
+      Queue Size: 10
+      Namespace: octomap_free
+      Enabled: false
+      
+    # 2. Fused Point Cloud
+    - Class: rviz_default_plugins/PointCloud2
+      Name: "Fused Point Cloud"
+      Topic: /fused_cloud
+      Size (Pixels): 2
+      Style: Flat Squares
+      Alpha: 0.7
+      Color Transformer: RGB8
+      Queue Size: 10
+      
+    # 3. 2D Projected Map
+    - Class: rviz_default_plugins/Map
+      Name: "2D Occupancy Grid"
+      Topic: /map
+      Color Scheme: costmap
+      Alpha: 0.3
+      
+    # 4. Laser Scan
+    - Class: rviz_default_plugins/LaserScan
+      Name: "Laser Scan"
+      Topic: /scan
+      Size (m): 0.05
+      Style: Points
+      
+    # 5. Robot Model
+    - Class: rviz_default_plugins/RobotModel
+      Name: "Robot Model"
+      Visual Enabled: true
+      Update Interval: 0
+      
+    # 6. TF Frames
+    - Class: rviz_default_plugins/TF
+      Name: TF Frames
+      Marker Scale: 0.5
+      
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: "3D View"
+      Target Frame: map
+      Distance: 10.0
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Yaw: 0.0
+      Pitch: 0.5
